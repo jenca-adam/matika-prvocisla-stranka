@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Moja stránka o prvočíslach</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-container">
+<form class="w3-panel"action="/zisti/" method="POST">
+
+<h1 class="w3-xxlarge w3-green">Veci pomocou Erastothenovho sita:</h1>
+<p><label for="cislo">Zadajte číslo:</label><input class="w3-input"name="cislo" required></input></p>
+<p><label for="courobit">Čo s ním mám urobiť?</label><select class="w3-select" name="courobit" required><option class="w3-option"value="prve">Prvých n prvočísel</option>
+                                                                 <option class="w3-option" value="vsetky">Vsetky prvocisla < n</option>
+                                                                 <option class="w3-option"value="jetoto">Je toto cislo prvocislo?</option>
+                                                                 </select></p>
+<div class="w3-panel">
+<input type="submit" class="w3-button w3-yellow w3-text-red w3-hover-red "value="OK"></input></div>
+</form>
+</div>
+<div class="w3-panel">
+<h1 class="w3-xxlarge w3-blue">Euklidov dokaz nekonecnosti prvocisel</h1>
+<a class="w3-text-red w3-hover-red" href="{{url_for('static',filename='euclides.pdf')}}">Tu</a></div></div>
+
