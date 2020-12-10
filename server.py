@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.8
+#!/usr/bin/env python3.5
 from flask import Flask, render_template,request,redirect
 import erathosten,os
 app=Flask(__name__)
@@ -16,18 +16,18 @@ def zisti():
             return render_template('zisti.html',chyba='Toto nie je cislo')
         courobit=form['courobit']
         if courobit=='prve':
-            return  render_template('zisti.html',title=f"Prvych {num} prvocisel", vysledok=sformatuj(erathosten.primes(int(num)),num))
+            return  render_template('zisti.html',title="Prvých {num} prvočísel".format(num=num), vysledok=sformatuj(erathosten.primes(int(num)),num))
         elif courobit =='vsetky':
-            return  render_template('zisti.html',title=f"Vsetky prvocisla < {num}", vysledok=sformatuj(erathosten.primesrange(int(num)),num))
+            return  render_template('zisti.html',title="Všetky prvočísla < {num}".format(num=num), vysledok=sformatuj(erathosten.primesrange(int(num)),num))
   
         else:
-            return  render_template('zisti.html',title=f"Je cislo {num} prvocislo?", vysledok=sformatuj(erathosten.isprime(int(num)),num))
+            return  render_template('zisti.html',title="Je čislo {num} prvočíslo?".format(num=num), vysledok=sformatuj(erathosten.isprime(int(num)),num))
 def sformatuj(vec,cislo):
     if isinstance(vec,bool):
         if vec:
-            return f'Ano, cislo {cislo} je prvocislo.'
+            return 'Ano, číslo {cislo} je prvočíslo.'.format(cislo=cislo)
         else:
-            return f'Nie, cislo {cislo} nie je prvocislo'
+            return 'Nie, číslo {cislo} nie je prvočíslo.'.format(cislo=cislo)
     elif isinstance(vec,list):
         return' '.join([str(i) for i in vec])
     else:
