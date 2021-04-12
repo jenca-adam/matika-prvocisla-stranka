@@ -31,8 +31,22 @@ def primesrange(num):
                 primes.append(index)
             index+=1
     return primes
-
 def isprime(num):
     return num in primesrange(num)
-    
-        
+class CMDLine(cmd.Cmd):
+    def do_mensie(self,line):
+        print(*primesrange(int(line)))
+    def do_vsetky(self,line):
+        print(*primes(int(line)))
+    def do_spytaj(self,line):
+        print(isprime(int(line)))
+    def help_mensie(self):
+        print('mensie [n]. vrati vsetky prvocisla p<n')
+    def help_vsetky(self):
+        print('vsetky [n]. vrati prvych n prvocisel')
+    def help_spytaj(self):
+        print('spytaj [n]. zistuje, ci je n prvocislom, ak je povie True, inak False')
+    def do_EOF(self,line):
+        exit()
+if __name__=='__main__':
+    CMDLine().cmdloop()

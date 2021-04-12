@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python
 from flask import Flask, render_template,request,redirect
 import erathosten,os
 app=Flask(__name__)
